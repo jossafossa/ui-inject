@@ -1,0 +1,10 @@
+{
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.*$",
+        "cmd": "pnpm run build && git add . && git commit -m 'Auto-commit on save' && git push"
+      },
+    ]
+  }
+}
