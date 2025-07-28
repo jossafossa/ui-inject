@@ -6,16 +6,3 @@ import styles from "./assets/index.scss?inline";
 const style = document.createElement("style");
 style.innerHTML = styles;
 document.head.appendChild(style);
-
-console.log(`asda
-  sdasd
-  asda
-  sda
-  sda
-  sd
-  asd
-  asd
-  asd
-  ads
-
-  `)
