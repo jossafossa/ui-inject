@@ -4,7 +4,7 @@ export const getBanner = () => `// ==UserScript==
 // @version       ${Date.now()}
 // @description   Enhance your Github experience with additional features.
 // @author        Jossafossa
-// @match         /^https://.*.*.(internal|app)/.*
+// @match         *://*/*
 // @icon          https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant         none
 // @grant         GM_setValue
