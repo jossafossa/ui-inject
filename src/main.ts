@@ -6,3 +6,5 @@ import styles from "./assets/index.scss?inline";
 const style = document.createElement("style");
 style.innerHTML = styles;
 document.head.appendChild(style);
+
+console.log("UI enhancer loaded")
