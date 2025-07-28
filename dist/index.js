@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          Github Enhancer
 // @namespace     http://tampermonkey.net/
-// @version       1753707655524
+// @version       1753707658791
 // @description   Enhance your Github experience with additional features.
 // @author        Jossafossa
 // @match         https://**/*
