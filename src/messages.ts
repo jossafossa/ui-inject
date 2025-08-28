@@ -64,10 +64,10 @@ export const init = () => {
                 params: Array<{ action: string; payload: unknown }>;
             };
             const detail = (e as CustomEvent<IframeMessageDetail>).detail;
-            const { action: type, params: actions } = detail;
+            const {  params: actions } = detail;
             actions.forEach(({ action, payload }) => {
                 dispatchEvent(new CustomEvent('simplicateMessage', {
-                    detail: { action, payload, type }
+                    detail: { action, payload, type: "iframe" }
                 }))
             });
         })
