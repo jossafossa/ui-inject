@@ -1,10 +1,10 @@
 export const getBanner = () => `// ==UserScript==
 // @name          UI Enhancer
 // @namespace     http://tampermonkey.net/
-// @version       ${Date.now()}
-// @description   Enhance your Github experience with additional features.
+// @version       ui-inject-${Date.now()}
+// @description   
 // @author        Jossafossa
-// @match         *://*/*
+// @match         *://*.internal/*
 // @icon          https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant         none
 // @grant         GM_setValue
