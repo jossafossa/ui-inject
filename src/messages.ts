@@ -23,7 +23,7 @@ export const init = () => {
     addEventListener('simplicateMessage', (e: Event) => {
         const detail = (e as CustomEvent<{ action: string; payload: unknown; type: string }>).detail;
         const {action, payload, type} = detail;
-        log(`%c[${type.toUpperCase()}: ${action}]\n`, 'color: orange; font-weight: bold;', payload);
+        log(`${type} ${action}:\n`, payload);
     })
 
 
@@ -64,7 +64,7 @@ export const init = () => {
                 params: Array<{ action: string; payload: unknown }>;
             };
             const detail = (e as CustomEvent<IframeMessageDetail>).detail;
-            const {  params: actions } = detail;
+            const { params: actions } = detail;
             actions.forEach(({ action, payload }) => {
                 dispatchEvent(new CustomEvent('simplicateMessage', {
                     detail: { action, payload, type: "iframe" }
