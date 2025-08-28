@@ -10,8 +10,8 @@ export const getBanner = () => `// ==UserScript==
 // @grant         GM_setValue
 // @grant         GM_getValue
 // @grant         GM_registerMenuCommand
-// @downloadURL   https://raw.githubusercontent.com/jossafossa/ui-inject/refs/heads/master/dist/index.js
-// @updateURL     https://raw.githubusercontent.com/jossafossa/ui-inject/refs/heads/master/dist/index.js
+// @downloadURL   https://raw.githubusercontent.com/jossafossa/ui-inject/refs/heads/main/dist/index.js
+// @updateURL     https://raw.githubusercontent.com/jossafossa/ui-inject/refs/heads/main/dist/index.js
 // ==/UserScript==
 
 `;
