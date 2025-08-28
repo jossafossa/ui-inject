@@ -1,9 +1,10 @@
 
-    // only fire this script inside the main window
-    const inIframe = () => window.self !== window.top;
-    if (inIframe()) return;
-    
+// only fire this script inside the main window
+const inIframe = () => window.self !== window.top;
+
 export const init = () => {
+
+    if (inIframe()) return;
 
     // Keep this list updates with all the event types
     const events = [
@@ -18,15 +19,16 @@ export const init = () => {
     ]
 
     // Listen for messages
-    addEventListener('simplicateMessage', e => {
-        const {action, payload, type} = e.detail;
+    addEventListener('simplicateMessage', (e: Event) => {
+        const detail = (e as CustomEvent<{ action: string; payload: unknown; type: string }>).detail;
+        const {action, payload, type} = detail;
         console.log(`%c[${type.toUpperCase()}: ${action}]\n`, 'color: orange; font-weight: bold;', payload);
     })
 
 
     // fire simplicateLoaded when simplicate is loaded
     const root = document.querySelector("#root");
-    const callback = (mutationList, observer) => {
+    const callback: MutationCallback = (mutationList, observer) => {
         for (const mutation of mutationList) {
             if (mutation.type === "childList") {
                 dispatchEvent(new CustomEvent("simplicateLoaded"));
@@ -36,15 +38,18 @@ export const init = () => {
         }
     };
     const observer = new MutationObserver(callback);
-    observer.observe(root, {attributes: true, childList: true, subtree: true });
+    observer.observe(root!, {attributes: true, childList: true, subtree: true });
 
 
     // Listen for actual messages
-    addEventListener("simplicateLoaded", e => {
-
+    addEventListener("simplicateLoaded", () => {
         // Listen for messages from the messageBus
+        type MessageBus = {
+            subscribe: (action: string, callback: (payload: unknown) => void) => void;
+        };
+        const messageBus = (window as typeof window & { messageBus: MessageBus }).messageBus;
         events.forEach(action => {
-            window.messageBus.subscribe(action, payload => {
+            messageBus.subscribe(action, (payload: unknown) => {
                 dispatchEvent(new CustomEvent('simplicateMessage', {
                     detail: { action, payload, type: 'message' }
                 }))
@@ -52,14 +57,18 @@ export const init = () => {
         });
 
         // Listen for messages from the iframe
-        addEventListener('simplicateIframeMessage', e => {
-            const {action: type, params: actions} = e.detail;
-            actions.forEach(({action, payload}) => {
+        addEventListener('simplicateIframeMessage', (e: Event) => {
+            type IframeMessageDetail = {
+                action: string;
+                params: Array<{ action: string; payload: unknown }>;
+            };
+            const detail = (e as CustomEvent<IframeMessageDetail>).detail;
+            const { action: type, params: actions } = detail;
+            actions.forEach(({ action, payload }) => {
                 dispatchEvent(new CustomEvent('simplicateMessage', {
-                    detail: { action, payload, type: 'iframe' }
+                    detail: { action, payload, type }
                 }))
             });
         })
-
     });
   }
