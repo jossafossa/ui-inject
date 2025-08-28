@@ -1,4 +1,29 @@
 .extended_filter {
-    resize: horizontal;
-    overflow: auto;
+  resize: horizontal;
+  overflow: auto;
+}
+
+[data-testid="top-bar-component"] {
+  position: relative;
+}
+
+[data-testid="top-bar-component"]:before {
+  --light: rgb(255, 230, 0);
+  --dark: brown;
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999999;
+  mix-blend-mode: color-burn;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--dark),
+    var(--dark) 10px,
+    var(--light) 10px,
+    var(--light) 20px
+  );
 }
