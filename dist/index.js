@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          UI Enhancer
 // @namespace     http://tampermonkey.net/
-// @version       ui-inject-1756389521668
+// @version       ui-inject-1756389528947
 // @description   
 // @author        Jossafossa
 // @match         *://*.internal/*
