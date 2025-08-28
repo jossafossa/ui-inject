@@ -52,7 +52,7 @@ export const init = () => {
         events.forEach(action => {
             messageBus.subscribe(action, (payload: unknown) => {
                 dispatchEvent(new CustomEvent('simplicateMessage', {
-                    detail: { action, payload, type: 'message' }
+                    detail: { action, payload, type: 'legacy react' }
                 }))
             })
         });
