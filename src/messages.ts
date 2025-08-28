@@ -1,3 +1,4 @@
+import { log } from "./utils";
 
 // only fire this script inside the main window
 const inIframe = () => window.self !== window.top;
@@ -22,7 +23,7 @@ export const init = () => {
     addEventListener('simplicateMessage', (e: Event) => {
         const detail = (e as CustomEvent<{ action: string; payload: unknown; type: string }>).detail;
         const {action, payload, type} = detail;
-        console.log(`%c[${type.toUpperCase()}: ${action}]\n`, 'color: orange; font-weight: bold;', payload);
+        log(`%c[${type.toUpperCase()}: ${action}]\n`, 'color: orange; font-weight: bold;', payload);
     })
 
 
