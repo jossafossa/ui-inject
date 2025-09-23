@@ -17,7 +17,9 @@ export const init = () => {
         "navigation",
         "backdrop",
         "header",
-        "export"
+        "export",
+        "endpoint",
+        "endpointResult"
     ]
 
     // Listen for messages
