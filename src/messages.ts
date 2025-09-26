@@ -19,7 +19,8 @@ export const init = () => {
         "header",
         "export",
         "endpoint",
-        "endpointResult"
+        "endpointResult",
+        "result"
     ]
 
     // Listen for messages
