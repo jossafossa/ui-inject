@@ -20,7 +20,7 @@ export const init = () => {
         "export",
         "endpoint",
         "endpointResult",
-        "result"
+        "response"
     ]
 
     // Listen for messages
