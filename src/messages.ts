@@ -18,9 +18,9 @@ export const init = () => {
         "backdrop",
         "header",
         "export",
-        "endpoint",
-        "endpointResult",
-        "response"
+        "endpointPending",
+        "endpointRejected",
+        "endpointFulfilled",
     ]
 
     // Listen for messages
