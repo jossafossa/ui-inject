@@ -54,6 +54,7 @@ export const init = () => {
         };
         const messageBus = (window as typeof window & { messageBus: MessageBus }).messageBus;
         events.forEach(action => {
+            log("Subscribing to action:", action);
             messageBus.subscribe(action, (payload: unknown) => {
                 dispatchEvent(new CustomEvent('simplicateMessage', {
                     detail: { action, payload, type: 'legacy-react' }
