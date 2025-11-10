@@ -56,7 +56,6 @@ export const init = () => {
         events.forEach(action => {
             log("Subscribing to action:", action);
             messageBus.subscribe(action, (payload: unknown) => {
-                console.log("Received message from messageBus:", action, payload);
                 dispatchEvent(new CustomEvent('simplicateMessage', {
                     detail: { action, payload, type: 'legacy-react' }
                 }))
