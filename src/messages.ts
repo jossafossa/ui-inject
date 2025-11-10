@@ -18,9 +18,9 @@ export const init = () => {
         "backdrop",
         "header",
         "export",
-        "reduxPending",
-        "reduxRejected",
-        "reduxFulfilled",
+        "simplicateApiV3Pending",
+        "simplicateApiV3Fulfilled",
+        "simplicateApiV3Rejected",
     ]
 
     // Listen for messages
